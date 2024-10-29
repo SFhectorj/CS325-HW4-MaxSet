@@ -17,8 +17,12 @@ def max_independent_set(nums):
     # the max_sum holds the maximum sum up to index i
     max_sum = [0] * n   # max_sum[i]
 
-    # Hold the subsequence here
+    # This variable will store the elements
     elements_selected = [[] for j in range(n)]
+
+    # Basecase1: Begin with initializing the first element
+    max_sum[0] = max(0, nums[0])
+
 
 
 
