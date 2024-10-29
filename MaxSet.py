@@ -1,15 +1,24 @@
 def max_independent_set(nums):
     """
-    This function will return a list with non-consecutive numbers
+    This function will return a list with the max sum possible without consecutive numbers.
     """
 
-    # Basecase1: If the given list is empty, return an empty list.
+    # If the given list is empty, return an empty list.
     if nums == 0:
         return []
 
-    # Basecase2: If all numbers are negative, return an empty list.
+    # If all numbers are negative, return an empty list.
     if all(number < 0 for number in nums):
         return []
+
+    # Variable to get the number of elements in the list
+    n = len(nums)
+
+    # the max_sum holds the maximum sum up to index i
+    max_sum = [0] * n   # max_sum[i]
+
+    # Hold the subsequence here
+    elements_selected = [[] for j in range(n)]
 
 
 
