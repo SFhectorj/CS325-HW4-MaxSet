@@ -38,8 +38,19 @@ def max_independent_set(nums):
             # otherwise the first element will be copied
             elements_selected[1] = elements_selected[0]
 
+    # Process the remaining elements
+    for i in range(2, n):
+        # Option 1: Exclude nums[i] (take max_sum[i-1])
+        if max_sum(i - 1) > max_sum[i - 2] + nums[i]:
+            max_sum[i] = max_sum[i - 1]
+            elements_selected[i] = elements_selected[i - 1]
+        else:
+            # Option 2: Include nums[i] (take max_sum[i-2] + nums[i])
+            max_sum[i] = max_sum[i - 2] + nums[i]
+            elements_selected[i] = elements_selected[i - 2] + [nums[i]]
 
-
+    # Return the maximum result at the last position
+    return elements_selected[-1]
 
 
 
