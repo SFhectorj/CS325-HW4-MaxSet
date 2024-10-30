@@ -22,6 +22,25 @@ def max_independent_set(nums):
 
     # Basecase1: Begin with initializing the first element
     max_sum[0] = max(0, nums[0])
+    # Any number less than 0 cannot continue
+    if max_sum[0] > 0:
+        elements_selected[0].append((nums[0]))
+
+    # Basecase2: Now it initializes the second element
+    if n > 1:
+        # Take the largest between the first and second element
+        max_sum[1] = max(max_sum[0], nums[1])
+
+        # When nums[1] is chosen over the first element
+        if max_sum[1] == nums[1]:
+            elements_selected[1].append(nums[1])
+        else:
+            # otherwise the first element will be copied
+            elements_selected[1] = elements_selected[0]
+
+
+
+
 
 
 
